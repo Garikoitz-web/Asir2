@@ -49,18 +49,16 @@ echo "sumawhile : " . $sumawhile;
 echo "<br>";
 echo "<br>";
 
-//foreach
-$x1 = 0;
-$sumaforeach = 0;
-foreach ($vv as $x1 => sumaforeach) {
-    //$sumaforeach = $sumaforeach + $x1 + $vv[0][0] + $vv[0][1] + $vv[0][2] + $vv[1][0] + $vv[1][1] + $vv[1][2];
-    $sumaforeach = $sumaforeach + $x1 ;
+
+
+// foreach
+$sumaforeach2 = 0;
+foreach ($vv as $v) {
+    foreach($v as $x) {
+        $sumaforeach2 = $sumaforeach2 + $x;
+    }
 }
-
-echo "sumaforeach : " . $sumaforeach;
-echo "<br>";
-echo "<br>";
-
+echo "batura foreach: " . $sumaforeach2;
 /*
 
 */
