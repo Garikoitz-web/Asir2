@@ -97,13 +97,8 @@ if ($conn->connect_error) {
        echo '<tr>';
        echo '<td>';
        echo '<div class="card-body bg-color2 col-auto">';
-       echo '<h3>';
-       echo "id: " . $row["id"]. "<br> tittle: " . $row["tittle"];
-       echo '</h3>';
-       echo '<h5>';
-       echo "<br> info:" . $row["info"]. "<br> <img width='20%' src=img/" . $row["img"].">";
+       echo "id: " . $row["id"]. "<br> tittle: " . $row["tittle"]. "<br> info:" . $row["info"]. "<br> <img width='20%' src=img/" . $row["img"].">";
        echo '<br>';
-       echo '</h5>';
        ?>
        <br>
        <form action="delete.php" method="POST">
@@ -120,31 +115,20 @@ if ($conn->connect_error) {
         echo '<div class="card-body bg-color2 col-auto">';
        ?>
        <form action="update.php" method="POST">
-
          <br>
-           <h4>
            ID:
-         </h4>
            <input type="text" name="id" value="<?php echo $row["id"]?>">
           <br>
-          <br>
-          <h4>
-          Tittle:
-          </h4>
-
+           Tittle:
+           <br>
            <input type="text" name="tittle" value="<?php echo $row["tittle"]?>">
            <br>
-           <br>
-           <h4>
            Info:
-           </h4>
-
+           <br>
            <input type="text" name="info" value="<?php echo $row["info"]?>">
            <br>
-           <br>
-           <h4>
            IMG:
-           </h4>
+           <br>
            <input type="text" name="img" value="<?php echo $row["img"]?>">
            <br>
            <br>
@@ -152,7 +136,6 @@ if ($conn->connect_error) {
              <img src="edit.ico" width="50" height="50">
            </button>
            <br>
-
        </form>
        <hr/>
          <?php

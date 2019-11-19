@@ -63,18 +63,11 @@ if ($conn->connect_error) {
               </nav>
 </html>
  <!-- Informacion -->
-<?php
- echo '<div class="card-body bg-color2 col-auto">';
-  ?>
  <form action="insert.html" method="POST">
      <input type="hidden" name="id" value="<?php echo $row["id"]?>">
-     <button class="navbar-toggler" type="sumbit">
-       <img src="insert2.ico" width="50" height="50">
-     </button>
+     <input type="submit" value="insert">
  </form>
- <?php
-  echo '</div>';
-   ?>
+
  <?php
  $servername = "localhost";
  $username = "root";
@@ -87,86 +80,43 @@ if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
  }
  //
- echo '<div class="clearfix card">';
  $sql = "SELECT * FROM news";
  $result = $conn->query($sql);
  if ($result->num_rows > 0) {
      // output data of each row
      while($row = $result->fetch_assoc()) {
-       echo '<table>';
-       echo '<tr>';
-       echo '<td>';
-       echo '<div class="card-body bg-color2 col-auto">';
-       echo '<h3>';
-       echo "id: " . $row["id"]. "<br> tittle: " . $row["tittle"];
-       echo '</h3>';
-       echo '<h5>';
-       echo "<br> info:" . $row["info"]. "<br> <img width='20%' src=img/" . $row["img"].">";
-       echo '<br>';
-       echo '</h5>';
-       ?>
-       <br>
-       <form action="delete.php" method="POST">
-           <input type="hidden" name="id" value="<?php echo $row["id"]?>">
-           <button class="navbar-toggler" type="sumbit">
-             <img src="delete.ico" width="50" height="50">
-           </button>
-       </form>
-       <?php
-        echo '</div>';
-        echo '</td>';
-
-        echo '<td>';
-        echo '<div class="card-body bg-color2 col-auto">';
-       ?>
-       <form action="update.php" method="POST">
-
-         <br>
-           <h4>
-           ID:
-         </h4>
-           <input type="text" name="id" value="<?php echo $row["id"]?>">
-          <br>
-          <br>
-          <h4>
-          Tittle:
-          </h4>
-
-           <input type="text" name="tittle" value="<?php echo $row["tittle"]?>">
+         echo "id: " . $row["id"]. "<br> tittle: " . $row["tittle"]. "<br> info:" . $row["info"]. "<br> <img width='20%' src=img/" . $row["img"].">";
+         ?>
+         <form action="delete.php" method="POST">
+             <input type="hidden" name="id" value="<?php echo $row["id"]?>">
+             <input type="submit" value="Delete">
+         </form>
+         <form action="update.php" method="POST">
            <br>
-           <br>
-           <h4>
-           Info:
-           </h4>
-
-           <input type="text" name="info" value="<?php echo $row["info"]?>">
-           <br>
-           <br>
-           <h4>
-           IMG:
-           </h4>
-           <input type="text" name="img" value="<?php echo $row["img"]?>">
-           <br>
-           <br>
-           <button class="navbar-toggler" type="sumbit">
-             <img src="edit.ico" width="50" height="50">
-           </button>
-           <br>
-
-       </form>
-       <hr/>
+             ID:
+             <input type="text" name="id" value="<?php echo $row["id"]?>">
+            <br>
+             Tittle:
+             <br>
+             <input type="text" name="tittle" value="<?php echo $row["tittle"]?>">
+             <br>
+             Info:
+             <br>
+             <input type="text" name="info" value="<?php echo $row["info"]?>">
+             <br>
+             IMG:
+             <br>
+             <input type="text" name="img" value="<?php echo $row["img"]?>">
+             <br>
+             <br>
+             <input type="submit" value="update">
+             <br>
+         </form>
+         <hr/>
          <?php
-          echo '</div>';
-          echo '</td>';
-          echo '</tr>';
-          echo '<br>';
-          echo '</table>';
-echo '<br>';
      }
  } else {
      echo "0 results";
  }
-          echo '</div>';
-
 $conn ->close();
  ?>

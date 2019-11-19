@@ -87,20 +87,17 @@ if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
  }
  //
- echo '<div class="clearfix">';
+ echo '<div class="clearfix card">';
  $sql = "SELECT * FROM news";
  $result = $conn->query($sql);
  if ($result->num_rows > 0) {
      // output data of each row
      while($row = $result->fetch_assoc()) {
-       echo '<div class="box">';
-
-       echo '<div class="card-body bg-color2 col-auto">';
-
+       //echo '<div class="card col-md-4">';
+       echo '<div class="card-body bg-color2 box">';
 
        echo '<h3>';
        echo "id: " . $row["id"]. "<br> tittle: " . $row["tittle"]. "<br> info:" . $row["info"];
-       echo  "<br> " . $row["tittle"];
        echo '</h3>';
        echo '<h5>';
        echo '<p>';
@@ -123,10 +120,11 @@ if ($conn->connect_error) {
          <?php
          echo '</div>';
          echo '</div>';
-         echo '</div>';
+echo '<br>';echo '<br>';echo '<br>';
 
-        echo '<div class="box">';
-         echo '<div class="card-body bg-color2 col-auto">';
+
+        //echo '<div class="card col-md-4">';
+        echo '<div class="card-body bg-color2 box">';
        ?>
 
          <form action="update.php" method="POST">
@@ -156,8 +154,8 @@ if ($conn->connect_error) {
          <hr/>
          <?php
          echo '</div>';
-         echo '</div>';
-         echo '</div>';
+
+
          echo '<br>';
          echo '</div>';
      }

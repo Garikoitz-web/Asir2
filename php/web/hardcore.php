@@ -82,14 +82,14 @@ if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
  }
  //
- echo '<div class="clearfix">';
+ echo '<div class="clearfix card">';
  $sql = "SELECT * FROM news";
  $result = $conn->query($sql);
  if ($result->num_rows > 0) {
      // output data of each row
      while($row = $result->fetch_assoc()) {
 
-       echo '<div class="box ">';
+      // echo '<div class="box">';
        echo '<div class="card-body bg-color2 col-auto">';
 
 
@@ -116,13 +116,14 @@ if ($conn->connect_error) {
          echo '</div>';
 
          echo '</div>';
+  //    echo '</div>';
+
       echo '</div>';
       echo '<br>';
-
      }
  } else {
      echo "0 results";
  }
-echo '</div>';
+
  $conn->close();
  ?>
