@@ -25,6 +25,11 @@ if ($conn->connect_error) {
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 <link href='https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC' rel='stylesheet' type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 
 <link href="Logo.ico" type="image/x-icon" rel="shortcut icon">
 
@@ -46,7 +51,7 @@ if ($conn->connect_error) {
 <a name="home"></a>
         <nav class="navbar navbar-expand-lg navbar-dark">
                 <a class="navbar-brand" href="#">
-                  <H4>Borroka Fronte Musikala</H4></a>
+                  <H2>Borroka Fronte Musikala</H2></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <img src="logo2.ico" width="50" height="50">
                 </button>
@@ -62,6 +67,7 @@ if ($conn->connect_error) {
                   </ul>
                 </div>
               </nav>
+              <br>
 </html>
  <!-- Informacion -->
  <?php
@@ -76,21 +82,47 @@ if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
  }
  //
+ echo '<div class="clearfix">';
  $sql = "SELECT * FROM news";
  $result = $conn->query($sql);
  if ($result->num_rows > 0) {
      // output data of each row
      while($row = $result->fetch_assoc()) {
-         echo "id: " . $row["id"]. "<br> tittle: " . $row["tittle"]. "<br> info:" . $row["info"]. "<br> <img width='20%' src=NEWS/img/" . $row["img"] . "> <br><hr/>";
+
+       echo '<div class="box ">';
+       echo '<div class="card-body bg-color2 col-auto">';
+
+
+       echo '<h3>';
+       //echo "id: " . $row["id"]. "<br> tittle: " . $row["tittle"]. "<br> info:" . $row["info"];
+       echo  "<br> " . $row["tittle"];
+       echo '</h3>';
+       echo '<h5>';
+       echo '<p>';
+       echo '<br>' . $row["info"] . '<br>';
+       echo '</p>';
+       echo '<br>';
+       echo '</h5>';
+
+       echo '<br>';
+       echo '<div>';
+       echo "<img width='30%' alt='Card image cap' src=NEWS/img/" . $row["img"] . "> <br>";
          ?>
-         <form action="news-read.php" method="POST">
-             <input type="hidden" name="id" value="<?php echo $row["id"]?>">
-         </form>
-         <hr/>
+              <form action="news-read.php" method="POST">
+                  <input type="hidden" name="id" value="<?php echo $row["id"]?>">
+              </form>
+
          <?php
+         echo '</div>';
+
+         echo '</div>';
+      echo '</div>';
+      echo '<br>';
+
      }
  } else {
      echo "0 results";
  }
+echo '</div>';
  $conn->close();
  ?>

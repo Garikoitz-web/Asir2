@@ -32,7 +32,6 @@ if ($conn->connect_error) {
 
 </head>
 <style>
-
 </style>
 <link href="../CSS/css.css" rel="stylesheet" type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -64,11 +63,18 @@ if ($conn->connect_error) {
               </nav>
 </html>
  <!-- Informacion -->
+<?php
+ echo '<div class="card-body bg-color2 col-auto">';
+  ?>
  <form action="insert.html" method="POST">
      <input type="hidden" name="id" value="<?php echo $row["id"]?>">
-     <input type="submit" value="insert">
+     <button class="navbar-toggler" type="sumbit">
+       <img src="insert2.ico" width="50" height="50">
+     </button>
  </form>
-
+ <?php
+  echo '</div>';
+   ?>
  <?php
  $servername = "localhost";
  $username = "root";
@@ -81,19 +87,51 @@ if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
  }
  //
+ echo '<div class="clearfix mt-4 card-deck row">';
  $sql = "SELECT * FROM news";
  $result = $conn->query($sql);
  if ($result->num_rows > 0) {
      // output data of each row
      while($row = $result->fetch_assoc()) {
-         echo "id: " . $row["id"]. "<br> tittle: " . $row["tittle"]. "<br> info:" . $row["info"]. "<br> <img width='20%' src=img/" . $row["img"];
+       echo '<div class="box">';
+       echo '<div class="card col-md-4">';
+       echo '<div class="card-body bg-color2 col-auto">';
+
+       echo '<h3>';
+       echo "id: " . $row["id"]. "<br> tittle: " . $row["tittle"]. "<br> info:" . $row["info"];
+       echo  "<br> " . $row["tittle"];
+       echo '</h3>';
+       echo '<h5>';
+       echo '<p>';
+       echo '<br>' . $row["info"] . '<br>';
+       echo '</p>';
+       echo '<br>';
+       echo '</h5>';
+
+       echo '<br>';
+       echo '<div>';
+       echo "<img width='30%' alt='Card image cap' src=img/" . $row["img"] . "> <br>";
+       echo '<br>';
          ?>
          <form action="delete.php" method="POST">
              <input type="hidden" name="id" value="<?php echo $row["id"]?>">
-             <input type="submit" value="Delete">
+             <button class="navbar-toggler" type="sumbit">
+               <img src="delete.ico" width="50" height="50">
+             </button>
          </form>
-         <hr/>
+         <?php
+         echo '</div>';
+         echo '</div>';
+         echo '</div>';
+
+
+        echo '<div class="box">';
+        echo '<div class="card col-md-4">';
+        echo '<div class="card-body bg-color2 col-auto">';
+       ?>
+
          <form action="update.php" method="POST">
+           <br>
              ID:
              <input type="text" name="id" value="<?php echo $row["id"]?>">
             <br>
@@ -110,14 +148,24 @@ if ($conn->connect_error) {
              <input type="text" name="img" value="<?php echo $row["img"]?>">
              <br>
              <br>
-             <input type="submit" value="update">
+             <button class="navbar-toggler" type="sumbit">
+               <img src="edit.ico" width="50" height="50">
+             </button>
              <br>
          </form>
+
          <hr/>
          <?php
+         echo '</div>';
+         echo '</div>';
+         echo '</div>';
+
+         echo '<br>';
+         echo '</div>';
      }
  } else {
      echo "0 results";
  }
+
 $conn ->close();
  ?>

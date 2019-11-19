@@ -85,7 +85,7 @@ if ($conn->connect_error) {
          ?>
          <form action="news-read.php" method="POST">
              <input type="hidden" name="id" value="<?php echo $row["id"]?>">
-             <input type="submit" value="Delete" href="delete.php">
+             <input type="submit" value="Delete">
          </form>
          <hr/>
          <?php
