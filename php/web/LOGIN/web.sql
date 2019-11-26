@@ -9,7 +9,6 @@ CREATE TABLE IF NOT EXISTS users (
 
 INSERT INTO users (user, pass) VALUES ("root", "root");
 
-INSERT INTO users (User, Pass) VALUES ("peru", "$2y$10$ni3fIGXrupwf8hNCIbKaj.xuWg./Vbfa3RQLnJDjLUq6Raz9L1vjK");
 
 drop table news;
 CREATE TABLE IF NOT EXISTS news (
