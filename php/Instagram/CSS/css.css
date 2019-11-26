@@ -1,0 +1,154 @@
+body{
+    padding: 0px;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .flex-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+   .flex-container > div {
+    background-color: #222222;
+    width: '100px';
+    margin: '10px';
+    text-align: justify;
+    line-height: '75px';
+    font-size: '30px';
+  }
+  .main-section{
+      margin:0 auto;
+      margin-top:25%;
+      padding: 0;
+  }
+
+  .modal-content{
+      background-color: #3b4652;
+      opacity: .85;
+      padding: 0 20px;
+      box-shadow: 0px 0px 3px #848484;
+  }
+
+  .form-group input{
+      height: 42px;
+      font-size: 18px;
+      border:0;
+      padding-right: 60px;
+      border-radius: 5px;
+  }
+
+  .form-group::before{
+      font-family: "Font Awesome\ 5 Free";
+      position: absolute;
+      right: 28px;
+      font-size: 22px;
+      padding-top:4px;
+  }
+
+  .form-group#user-group::before{
+      content: "\f007";
+  }
+
+  .form-group#contrasena-group::before{
+      content: "\f023";
+  }
+
+  button{
+      width: 60%;
+      margin: 5px 0 25px;
+  }
+
+  .forgot{
+      padding: 5px 0;
+  }
+
+  .forgot a{
+      color: white;
+  }
+
+p {
+  margin-left: '20px';
+  margin-right: '20px';
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.box {
+  float: left;
+  width: 50%;
+  padding: 50px;
+  height: 300px;
+}
+
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+
+nav {}
+
+.col {
+background-color: #111;
+border: '2px' solid black;
+}
+
+.col-10 {
+background-color: whitesmoke;
+border: '2px' solid black;
+}
+.btn-dark {
+  background-color: #333;
+}
+
+.bg-color {
+background-color: #111;
+color: white;
+}
+.bg-color2 {
+    background-color: #222;
+    color: white;
+    }
+
+.bg-color3 {
+    background-color: #white;
+    color: red;
+    }
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #222;
+    background-clip: border-box;
+    margin-right: '80px';
+    margin-left: '80px';
+    margin-top: '80px';
+    margin-bottom: '80px';
+
+}
+
+.card-body {
+
+}
+.white {
+background-color: #111;
+color: white;
+}
